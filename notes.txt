@@ -1,6 +1,0 @@
-flux bootstrap github \
-  --owner=dkysetiadi \
-  --repository=kube-fluxcd \
-  --branch=master
-  --path=clusters/cluster-production \
-  --personal
