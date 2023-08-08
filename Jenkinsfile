@@ -17,10 +17,14 @@ pipeline {
             }
         }
         stage('Test'){
-            echo 'test image'
+            steps{
+                echo 'test image'
+            }
         }
         stage('Deploy'){
-            eccho 'deploy image'
+            steps{
+                echo 'deploy image'
+            }
         }
     }
 }
