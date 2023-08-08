@@ -5,7 +5,6 @@ pipeline {
             agent {
                 docker {
                     image 'golang:alpine3.16'
-                    label 'docker'
                 }
             }
             steps {
