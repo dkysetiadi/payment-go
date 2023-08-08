@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             agent {
                 docker {
-                    image 'gcr.io/ferrous-module-395010/dkysetiadi'
+                    image 'gcr.io/ferrous-module-395010/dkysetiadi/golang'
                     label 'docker'
                 }
             }
