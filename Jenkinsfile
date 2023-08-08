@@ -14,17 +14,7 @@ pipeline {
             #/bin/sh
             go version
             '''
-        }
-            }
-        }
-        stage('Test'){
-            steps {
-                echo 'Test app'
-            }
-        }
-        stage('Deploy'){
-            steps {
-                echo 'Deploy app'
             }
         }
     }
+}
