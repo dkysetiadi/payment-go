@@ -4,7 +4,7 @@ pipeline {
         stage('Build'){
             agent {
                 docker {
-                    image 'dkysetiadi/golang'
+                    image 'golang:alpine'
                     label 'docker'
                 }
             }
