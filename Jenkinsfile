@@ -1,20 +1,26 @@
 pipeline {
     agent any
     stages {
-        stage('Build'){
-            steps{
+        stage('Build') {
+            agent {
+                docker {
+                    image 'golang:alpine3.16'
+                    label 'docker'
+                }
+            }
+            steps {
                 echo 'build image'
             }
         }
-        stage('Test'){
-            steps{
+        stage('Test') {
+            steps {
                 echo 'test image'
             }
         }
-        stage('Deploy'){
-            steps{
+        stage('Deploy') {
+            steps {
                 echo 'deploy image'
-                }
             }
+        }
     }
 }
