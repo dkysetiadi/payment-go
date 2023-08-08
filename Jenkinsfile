@@ -5,6 +5,7 @@ pipeline {
             agent {
                 docker {
                     image 'gcr.io/ferrous-module-395010/dkysetiadi'
+                    label 'docker'
                 }
             }
             steps {
