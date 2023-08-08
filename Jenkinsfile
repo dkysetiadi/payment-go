@@ -2,7 +2,12 @@ pipeline {
     agent any
     stages {
         stage('Build'){
-            image 'dkysetiadi/golang'
+            agent {
+                docker {
+                    image 'dkysetiadi/golang'
+                    label 'docker'
+                }
+            }
         steps {
             echo 'Build app golang'
             sh '''
