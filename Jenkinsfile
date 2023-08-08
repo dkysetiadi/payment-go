@@ -16,5 +16,11 @@ pipeline {
             '''
             }
         }
+        stage('Test'){
+            echo 'test image'
+        }
+        stage('Deploy'){
+            eccho 'deploy image'
+        }
     }
 }
