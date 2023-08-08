@@ -2,19 +2,8 @@ pipeline {
     agent any
     stages {
         stage('Build'){
-            agent {
-                docker {
-                    image 'dkysetiadi:golang'
-                    label 'docker'
-                }
-            }
-        steps {
-            echo 'Build app golang'
-            sh '''
-            #/bin/sh
-            go version
-            '''
-            }
+            steps{
+                echo 'build image'
         }
         stage('Test'){
             steps{
@@ -24,6 +13,7 @@ pipeline {
         stage('Deploy'){
             steps{
                 echo 'deploy image'
+                }
             }
         }
     }
