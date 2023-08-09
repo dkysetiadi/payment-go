@@ -2,19 +2,9 @@ pipeline {
     agent any
     stages {
         stage('Build') {
-            agent {
-                docker {
-                    image 'dkysetiadi/golang'
-                    label 'docker'
-                }
-            }
             steps {
                 echo 'build image golang'
-                sh '''
-                #/bin/sh
-                go version
-                GOCACHE=/tmp/ GOOS=linux GOARCH=amd64 go build -o goapp main.go
-                '''
+                sh 'docker build -t gcr.io/ferrous-module-395010/golang-apps:1 .'
             }
         }
         stage('Test') {
