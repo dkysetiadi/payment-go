@@ -15,7 +15,6 @@ pipeline {
         stage('Push') {
             steps {
                 echo 'push to gcr'
-                sh 'cat '
                 sh 'docker push gcr.io/ferrous-module-395010/golang-apps:1'
             }
         }
