@@ -13,6 +13,7 @@ pipeline {
                 sh '''
                 #/bin/sh
                 go version
+                GOOS=linux GOARCH=amd64 go build -o goapp main.go
                 '''
             }
         }
