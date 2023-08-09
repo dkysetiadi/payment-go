@@ -9,7 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'build image golang'
-                sh 'docker build -t gcr.io/ferrous-module-395010/golang-apps:1 .'
+                sh 'docker build -t gcr.io/ferrous-module-395010/golang-apps:${BUILD_NUMBER} .'
             }
         }
         stage('Push') {
