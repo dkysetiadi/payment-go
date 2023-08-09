@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        label 'docker'
+    }
+    environment {
+        GCP_SERVICE_ACCOUNT = credentials{'service-account-jenkins'}
+    }
     stages {
         stage('Build') {
             steps {
@@ -7,9 +12,10 @@ pipeline {
                 sh 'docker build -t gcr.io/ferrous-module-395010/golang-apps:1 .'
             }
         }
-        stage('Test') {
+        stage('Push') {
             steps {
-                echo 'tes image golang'
+                echo 'push to gcr'
+                sh 'cat '
                 sh 'docker push gcr.io/ferrous-module-395010/golang-apps:1'
             }
         }
