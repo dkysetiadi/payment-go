@@ -4,11 +4,16 @@ pipeline {
         stage('Build') {
             agent {
                 docker {
-                    image 'dkysetiadi/golang'
+                    image 'golang:alpine3.16'
+                    label 'docker'
                 }
             }
             steps {
-                echo 'build image'
+                echo 'build image golang'
+                sh '''
+                #/bin/sh
+                go version
+                '''
             }
         }
         stage('Test') {
