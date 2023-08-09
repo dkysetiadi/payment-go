@@ -9,7 +9,8 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'test image golang'
+                echo 'tes image golang'
+                sh 'docker push gcr.io/ferrous-module-395010/golang-apps:1'
             }
         }
         stage('Deploy') {
