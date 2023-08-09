@@ -2,9 +2,9 @@ pipeline {
     agent {
         label 'docker'
     }
-    environment {
-        GCP_SERVICE_ACCOUNT = credentials{'service-account-jenkins'}
-    }
+    // environment {
+    //     GCP_SERVICE_ACCOUNT = credentials{'service-account-jenkins'}
+    // }
     stages {
         stage('Build') {
             steps {
