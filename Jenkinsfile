@@ -20,7 +20,7 @@ pipeline {
                 sh 'docker push gcr.io/ferrous-module-395010/golang-apps:${BUILD_NUMBER}'
             }
         }
-        stage('Deploy') {
+        stage('Active GCP Account') {
             steps {
                 echo "Active GCP Account"
                 sh 'ssh -o StrictHostKeyChecking=no -i "$ID_RSA" $GCP_SERVICE_ACCOUNT'
