@@ -22,6 +22,15 @@ pipeline {
         }
         stage('Deploy') {
             steps {
+                echo "Active GCP Account"
+                sh 'ssh -o StrictHostKeyChecking=no -i "$ID_RSA" $GCP_SERVICE_ACCOUNT'
+                sh 'ssh -o StrictHostKeyChecking=no -i "$ID_RSA" dickysetiadi64@34.101.98.183 "gcloud auth activate"'
+                sh 'ssh -o StrictHostKeyChecking=no -i "$ID_RSA" dickysetiadi64@34.101.98.183 "gcloud auth list"'
+                sh 'ssh -o StrictHostKeyChecking=no -i "$ID_RSA" dickysetiadi64@34.101.98.183 "gcloud container clusters get-credentials cluster-jenkins --zone asia-southeast2-a --project ferrous-module-395010"'
+            }
+        }
+        stage('Deploy') {
+            steps {
                 echo 'deploy image'
                 sh 'helm repo add dicky-charts https://adhithia21.github.io/helm-charts/charts'
                 sh 'helm upgrade --kubeconfig "$KUBE_CONFIG" --install goapp dicky-charts/application'
