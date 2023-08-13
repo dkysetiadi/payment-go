@@ -4,6 +4,7 @@ pipeline {
     }
     environment {
         GCP_SERVICE_ACCOUNT = credentials('service_account_jenkins')
+        KUBE_CONFIG = credentials('kubernetes_jenkins')
     }
     stages {
         stage('Build') {
@@ -22,8 +23,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'deploy image'
-                sh 'helm repo add dicky-chart https://adhithia21.github.io/helm-charts/charts'
-                echo 'test'
+                sh 'helm repo add dicky-charts https://adhithia21.github.io/helm-charts/charts'
+                sh 'helm upgrade --kubeconfig "$KUBE_CONFIG" --install goapp dicky-charts/application'
             }
         }
     }
