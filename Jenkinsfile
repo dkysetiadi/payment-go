@@ -23,6 +23,7 @@ pipeline {
             steps {
                 echo 'deploy image'
                 sh 'helm repo add dicky-chart https://adhithia21.github.io/helm-charts/charts'
+                echo 'test'
             }
         }
     }
