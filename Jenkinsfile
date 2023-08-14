@@ -4,7 +4,6 @@ pipeline {
     }
     environment {
         GCP_SERVICE_ACCOUNT = credentials('service_account_jenkins')
-        KUBE_CONFIG = credentials('config_kube')
     }
     stages {
         stage('Build') {
