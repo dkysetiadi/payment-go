@@ -23,6 +23,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'deploy image'
+                sh 'kubectl get nodes'
                 sh 'helm upgrade --install goapp dicky-charts/application'
             }
         }
