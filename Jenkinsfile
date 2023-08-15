@@ -21,12 +21,12 @@ pipeline {
                 sh 'docker push gcr.io/ferrous-module-395010/golang-apps:${BUILD_NUMBER}'
             }
         }
-        stage('Active GCP Account'){
-            steps {
-                echo 'Active Account'
-                sh 'ssh -o StrictHostKeyChecking=no -i "$GCP_SSH_KEY" dickysetiadi64@34.101.98.183 "whoami"'
-            }
-        }
+        // stage('Active GCP Account'){
+        //     steps {
+        //         echo 'Active Account'
+        //         sh 'ssh -o StrictHostKeyChecking=no -i "$GCP_SSH_KEY" dickysetiadi64@34.101.98.183 "whoami"'
+        //     }
+        // }
         stage('Deploy') {
             steps {
                 echo 'deploy image'
