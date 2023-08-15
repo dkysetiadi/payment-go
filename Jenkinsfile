@@ -43,8 +43,10 @@ pipeline {
     }
         stages {
             stage ('build') {
-                echo 'test'
+                steps {
+                    echo 'test'
             }
         }
     }
+}
 
