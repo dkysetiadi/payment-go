@@ -38,12 +38,13 @@
 //     }
 // }
 pipeline {
-    agent any {
+    agent {
+        label 'docker'
+    }
         stages {
             stage ('build') {
                 echo 'test'
             }
         }
     }
-}
 
