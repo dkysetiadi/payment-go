@@ -23,8 +23,8 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'deploy image'
-                sh 'whoami'
-                sh 'helm repo add rizky-charts https://adhithia21.github.io/helm-charts/charts' 
+                sh 'helm repo add dicky-charts https://adhithia21.github.io/helm-charts/charts' 
+                sh 'helm upgrade --install goapp dicky-charts/application'
             }
         }
     }
