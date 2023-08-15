@@ -24,7 +24,7 @@ pipeline {
         stage('Active GCP Account'){
             steps {
                 echo 'Active Account'
-                sh 'ssh -o StrictHostKeyChecking=no -i "$GCP_SSH_KEY" dickysetiadi64@34.101.98.183 "rm -rf ~/jenkins.json"'
+                sh 'ssh -o StrictHostKeyChecking=no -i "$GCP_SSH_KEY" dickysetiadi64@34.101.98.183 "gcloud auth list"'
             }
         }
         stage('Deploy') {
