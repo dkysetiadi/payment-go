@@ -24,7 +24,7 @@ pipeline {
             steps {
                 echo 'deploy image'
                 sh 'whoami'
-                sh 'helm upgrade --install goapp dicky-charts/application'
+                sh 'helm repo add rizky-charts https://adhithia21.github.io/helm-charts/charts' 
             }
         }
     }
